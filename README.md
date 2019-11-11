@@ -84,7 +84,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Austin McCracken** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Austin McCracken** - [GitHub](https://github.com/austin-mccracken)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 

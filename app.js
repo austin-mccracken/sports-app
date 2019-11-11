@@ -4,7 +4,6 @@ const app = express()
 const port = process.env.PORT || 3000
 
 var options = {
-    url: 'https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=miami_dolphins',
     method: 'GET',
     headers: {
         'Accept': 'application/json',
@@ -66,12 +65,6 @@ async function myBackEndLogic(req, res) {
 
 app.get('/nfl/:team', (req, res) => {
     myBackEndLogic(req, res);
-})
-
-app.get('/api/teams/:id', (req, res) => {
-    const team = teams.find(t => t.id === parseInt(req.params.id))
-    if (!team) return res.status(404).send('The team with the given ID was not found')
-    res.send(team)
 })
 
 app.listen(port, () => {

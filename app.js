@@ -2,6 +2,7 @@ const request = require('request')
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
+var result = {}
 
 var options = {
     method: 'GET',
@@ -47,16 +48,18 @@ const parseResult = (body) => {
         console.log(`Teams is null`)
         return
     }
-    teamName = json.teams[0].strTeam
-    teamDescription = json.teams[0].strDescriptionEN
-    teamLogo = json.teams[0].strTeamLogo
-    console.log(teamName)
+    result.teamName = json.teams[0].strTeam
+    result.teamDescription = json.teams[0].strDescriptionEN
+    result.teamLogo = json.teams[0].strTeamLogo
+    result.teamBadge = json.teams[0].strTeamBadge
+    result.teamJersey = json.teams[0].strTeamJersey
+    result.teamBanner = json.teams[0].strTeamBanner
 }
 
-async function myBackEndLogic(req, res) {
+async function myBackEndLogic(req, res, result) {
     try {
         await sportsApi(req.params.team)
-        res.send({ Team_Name: `${teamName}`, Team_Description: `${teamDescription}`, Team_Logo: `${teamLogo}` })
+        res.send(result)
     } catch (error) {
         console.error('ERROR:')
         console.error(error)
@@ -64,7 +67,7 @@ async function myBackEndLogic(req, res) {
 }
 
 app.get('/nfl/:team', (req, res) => {
-    myBackEndLogic(req, res);
+    myBackEndLogic(req, res, result);
 })
 
 app.listen(port, () => {

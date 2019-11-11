@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>NFL Team Finder</title>
+    <meta name="description" content="The NFL Team Finder!">
+    <meta name="Austin McCracken" content="NFLTeamFinder">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+
+    <div>
+        <h1>NFL Team Selector</h1>
+
+        <select id="teams" onchange="dropDown(this.value)">
+            <option value="default">- Select a team -</option>
+            <option value="miami_dolphins">Miami Dolphins</option>
+            <option value="new_england_patriots">New England Patriots</option>
+            <option value="buffalo_bills">Buffalo Bills</option>
+            <option value="new_york_jets">New York Jets</option>
+            <option value="chicago_bears">Chicago Bears</option>
+        </select>
+
+
+
+        <h2>Team Name:</h2>
+        <p id="team-name-div"></p>
+        <h2>Team Description:</h2>
+        <p id="team-des-div"></p>
+        <h2>Team Logo:</h2>
+        <img src="" id="team-logo-div" style="width: 50%"/>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

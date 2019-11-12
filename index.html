@@ -3,51 +3,178 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
 
     <title>NFL Team Finder</title>
     <meta name="description" content="The NFL Team Finder!">
     <meta name="Austin McCracken" content="NFLTeamFinder">
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png"
+        href="http://cqrecords.com/wp-content/uploads/bj/bjxwfootball-animated-clip-art-football-clipart-png-download.jpg" />
 
 </head>
 
 <body>
 
-    <div>
-        <h1>NFL Team Finder</h1>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">NFL Team Selector</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <select id="teams" onchange="dropDown(this.value)">
-            <option value="default">- Select a team -</option>
-            <option value="miami_dolphins">Miami Dolphins</option>
-            <option value="new_england_patriots">New England Patriots</option>
-            <option value="buffalo_bills">Buffalo Bills</option>
-            <option value="new_york_jets">New York Jets</option>
-            <option value="chicago_bears">Chicago Bears</option>
-        </select>
+    <!-- Header -->
+    <header class="bg-primary py-5 mb-5">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-12">
+                    <h1 class="display-4 text-white mt-5 mb-2">Welcome to the NFL Sports App</h1>
+                    <p class="lead mb-5 text-white-50">Unlock insights never before imaginable, exclusivley with the NFL
+                        team selector sports app.</p>
+                    <!-- <img id="team-banner-div" src="" alt=""> -->
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Page Content -->
+    <div class="container">
 
+        <div class="row">
+            <div class="col-md-8 mb-5">
+                <h2 id="team-name-div">Team Name</h2>
+                <hr>
+                <img id="team-banner-div" src="" alt="" width=100%>
+                <p id="team-des-div">Team Description</p>
+                <a class="btn btn-primary btn-lg" href="#">Select your team &raquo;</a>
 
-        <h2>Team Name:</h2>
-        <p id="team-name-div"></p>
-        <h2>Team Description:</h2>
-        <p id="team-des-div"></p>
-        <h2>Team Swag:</h2>
-        <img src="" id="team-banner-div" style="width: 100%" />
-        <img src="" id="team-badge-div" style="width: 50%" />
-        <img src="" id="team-jersey-div" style="width: 50%" />
-        <img src="" id="team-logo-div" style="width: 50%" />
+                <select id="teams" onchange="dropDown(this.value)">
+                    <option value="default">- Select a team -</option>
+                    <option value="miami_dolphins">Miami Dolphins</option>
+                    <option value="new_england_patriots">New England Patriots</option>
+                    <option value="buffalo_bills">Buffalo Bills</option>
+                    <option value="new_york_jets">New York Jets</option>
+                    <option value="chicago_bears">Chicago Bears</option>
+                </select>
+
+            </div>
+            <div class="col-md-4 mb-5">
+                <h2>Contact Us</h2>
+                <hr>
+                <a href ="https://www.google.com" target="_blank" id="facebook">Facebook</a>
+                <br>
+                <a href ="https://www.google.com" target="_blank" id="twitter">Twitter</a>
+                <br>
+                <a href ="https://www.google.com" target="_blank" id="instagram">Instagram</a>
+                <br>
+                <a href ="https://www.google.com" target="_blank" id="team-site">Team Site</a>
+                <br>
+                <br>
+                
+                <address>
+                    <strong id="location">Team Location</strong>
+                    <br> <p id="team-location">City, State</p>
+                    <br>
+                </address>
+            </div>
+        </div>
+
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top" id="team-badge-div" src="http://placehold.it/300x200" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Logo</h4>
+                        <p class="card-text">Team Logo.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href ="https://www.google.com" class="btn btn-primary" target="_blank" id="find-out-more">Find Out More!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top" id="team-jersey-div" src="http://placehold.it/300x200" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Jersey</h4>
+                        <p class="card-text">Team Jersey.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href ="https://www.google.com" class="btn btn-primary" target="_blank" id="find-out-more">Find Out More!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top" id="team-stadium-div" src="http://placehold.it/300x200" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Stadium</h4>
+                        <p class="card-text" id="stadium-name-div">Team Stadium.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href ="https://www.google.com" class="btn btn-primary" target="_blank" id="find-out-more">Find Out More!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
     </div>
+    <!-- /.container -->
 
-    <footer>
-        <p>Creator: Austin McCracken</p>
-        <p>Contact information: <a href="https://www.linkedin.com/in/austin-mccracken/">
-                LinkedIn</a></p>
+    <!-- Footer -->
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Sports App 2019</p>
+            <p class="m-0 text-center text-white">Created by Austin McCracken</p>
+        </div>
+        <!-- /.container -->
     </footer>
 
     <script src="index.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
-
-
 </html>

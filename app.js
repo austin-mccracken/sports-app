@@ -48,12 +48,8 @@ const parseResult = (body) => {
         console.log(`Teams is null`)
         return
     }
-    result.teamName = json.teams[0].strTeam
-    result.teamDescription = json.teams[0].strDescriptionEN
-    result.teamLogo = json.teams[0].strTeamLogo
-    result.teamBadge = json.teams[0].strTeamBadge
-    result.teamJersey = json.teams[0].strTeamJersey
-    result.teamBanner = json.teams[0].strTeamBanner
+    result['resultObject'] = [json.teams[0]]
+    console.log(result.resultObject[0])
 }
 
 async function myBackEndLogic(req, res, result) {

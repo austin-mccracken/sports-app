@@ -1,7 +1,10 @@
 const request = require('request')
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
+const path = require("path")
+//const port = process.env.PORT || 3000
+const PORT = 8080
+const HOST = '0.0.0.0'
 var result = {}
 
 var options = {
@@ -13,6 +16,7 @@ var options = {
     }
 };
 
+app.use(express.static(path.join(__dirname, "./")))
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080')
@@ -32,7 +36,7 @@ const sportsApi = (team) => {
     options.url = 'https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=' + team
     return new Promise((resolve, reject) => {
         request(options, (error, response, body) => {
-            if (error) reject(error);
+            if (error) reject(error)
             if (response.statusCode != 200) {
                 reject('Invalid status code <' + response.statusCode + '>')
             }
@@ -63,9 +67,16 @@ async function myBackEndLogic(req, res, result) {
 }
 
 app.get('/nfl/:team', (req, res) => {
-    myBackEndLogic(req, res, result);
+    myBackEndLogic(req, res, result)
 })
 
-app.listen(port, () => {
-    console.log(`App is listening on port ${port}`)
+app.get("/*", (req, res) =>{
+    res.sendFile(path.join(__dirname, "./index.html"))
 })
+
+// app.listen(port, () => {
+//     console.log(`App is listening on port ${port}`)
+// })
+
+app.listen(PORT, HOST);
+console.log(`Running on http://${HOST}:${PORT}`)

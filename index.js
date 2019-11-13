@@ -2,8 +2,8 @@ const apiResponse = document.getElementById('api-response')
 console.log(`apiResponse object is ${apiResponse}`)
 
 async function callApi(team) {
-    const response = await fetch(`http://localhost:3000/nfl/${team}`)
-    console.log(`Request sent to http://localhost:3000/nfl/${team}`)
+    const response = await fetch(`/nfl/${team}`)
+    console.log(`Request sent to /nfl/${team}`)
     const responseBody = await response.json()
     document.getElementById('team-name-div').innerHTML = responseBody.resultObject[0].strTeam
     document.getElementById('team-des-div').innerHTML = responseBody.resultObject[0].strDescriptionEN

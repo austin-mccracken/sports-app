@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2019-11-13T06:47:49Z"
+  generation: 2
+  labels:
+    app: sports-app
+  name: sports-app
+  namespace: default
+  resourceVersion: "1358460"
+  selfLink: /apis/apps/v1/namespaces/default/deployments/sports-app
+  uid: 8211b936-05e1-11ea-8670-42010a800235
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: sports-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sports-app
+    spec:
+      containers:
+      - image: gcr.io/football-api-258420/sports-app:05d2496a74bc7eb2acd28a97f09cc3796cd54d40
+        imagePullPolicy: IfNotPresent
+        name: sports-app
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2019-11-13T06:47:49Z"
+    lastUpdateTime: "2019-11-13T06:48:44Z"
+    message: ReplicaSet "sports-app-69d66bbddb" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2019-11-17T20:45:05Z"
+    lastUpdateTime: "2019-11-17T20:45:05Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
